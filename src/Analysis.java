@@ -8,10 +8,70 @@
  * F->(E)|i
  */
 
+import java.io.*;
+import java.util.*;
 import java.util.ArrayDeque;
 import java.util.Deque;
+import java.lang.*;
 
 public class Analysis {
+
+    private static List<String> gra = new ArrayList();
+    private static int VTN = 0, VNN = 0;
+
+    private List<String> getGrammar() throws IOException {
+        File file = new File("src/grammer.txt");
+        if (!file.exists()) {
+            try {
+                file.createNewFile();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        FileReader reader = new FileReader(file);
+        BufferedReader bReader = new BufferedReader(reader);//文件缓存
+        String s = "";
+        while ((s = bReader.readLine()) != null) {
+            gra.add(s);
+        }
+        bReader.close();
+        System.out.println(gra);
+        return null;
+    }
+
+    //终结符
+    //private static String[] VT = new String[]{"i", "+", "*", "(", ")", "#"};;
+    private static String[] VT = new String[]{"i", "+", "*", "(", ")", "#"};
+    ;
+
+    //非终结符
+    private String[] VN = new String[]{"E", "E'", "T", "T'", "F"};
+    //private static String[] VN = new String[15];
+
+    //输入串strToken
+    private StringBuilder strToken = new StringBuilder("i*i+i");
+
+    public static String[] getStr(String[] str) {
+        for (int i = 0; i < str.length; i++) {
+            System.out.println(str[i]);
+            //System.out.println(str[0]);
+            //System.out.println("hahhahhahshh---");
+        }
+        return str;
+    }
+
+    public static List<String> getFirst(List<String> gra) {
+        String[] right;
+        for (int i = 0; i < gra.size(); i++) { // 初始化FIRST集
+            right = gra.get(i).split("->");
+            System.out.println(getStr(right));
+            // System.out.println(getStr(right));
+
+
+        }
+        return gra;
+    }
+
     //预测分析表
     private String[][] analysisTable = new String[][]{
             {"TE'", "", "", "TE'", "", ""},
@@ -21,14 +81,6 @@ public class Analysis {
             {"i", "", "", "(E)", "", ""}
     };
 
-    //终结符
-    private String[] VT = new String[]{"i", "+", "*", "(", ")", "#"};
-
-    //非终结符
-    private String[] VN = new String[]{"E", "E'", "T", "T'", "F"};
-
-    //输入串strToken
-    private StringBuilder strToken = new StringBuilder("i*i+i");
 
     //分析栈stack
     private Deque<String> stack = new ArrayDeque<>();
@@ -50,6 +102,12 @@ public class Analysis {
 
     public static void main(String[] args) {
         Analysis ll1 = new Analysis();
+        try {
+            List<String> gra = ll1.getGrammar();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        ll1.getFirst(gra);
         ll1.init();
         ll1.totalControlProgram();
         ll1.printf();

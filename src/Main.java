@@ -1,6 +1,6 @@
 /**
  * Created by lmy on 17-11-25.
- * 递归下降语法分析
+ * 递归下降语法分析,对于数学表达式的分析
  */
 import java.io.*;
 import java.util.Scanner;

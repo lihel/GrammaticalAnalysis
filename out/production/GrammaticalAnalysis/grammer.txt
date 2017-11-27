@@ -1,4 +1,4 @@
-E->TE'
-E'->+TE'|ε
-T->FT'
+E->TP
+P->+TP|ε
+T->FQ
 F->(E)|i

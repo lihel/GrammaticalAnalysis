@@ -1,11 +1,6 @@
 /**
  * Created by lmy on 17-11-25.
  * LL(1)文法　预测分析法
- * E->TE'
- * E'->+TE'|ε
- * T->FT'
- * T'->*FT'|ε
- * F->(E)|i
  */
 
 import java.io.*;
@@ -16,10 +11,17 @@ import java.lang.*;
 
 public class Analysis {
 
-    private static List<String> gra = new ArrayList();
-    private static int VTN = 0, VNN = 0;
+    private static ArrayList<String> gra = new ArrayList();
+    private static ArrayList<String> rightList = new ArrayList();
+    private static String[] rightsplited;
+    private static String right;
+    private static String left;
+    //终结符
+    private static ArrayList<String> VT = new ArrayList<String>();
+    //非终结符
+    private static ArrayList<String> VNend = new ArrayList<String>();
 
-    private List<String> getGrammar() throws IOException {
+    private ArrayList<String> getGrammar() throws IOException {
         File file = new File("src/grammer.txt");
         if (!file.exists()) {
             try {
@@ -39,45 +41,48 @@ public class Analysis {
         return null;
     }
 
-    //终结符
-    //private static String[] VT = new String[]{"i", "+", "*", "(", ")", "#"};;
-    private static String[] VT = new String[]{"i", "+", "*", "(", ")", "#"};
-    ;
-
-    //非终结符
-    private String[] VN = new String[]{"E", "E'", "T", "T'", "F"};
-    //private static String[] VN = new String[15];
 
     //输入串strToken
     private StringBuilder strToken = new StringBuilder("i*i+i");
 
-    public static String[] getStr(String[] str) {
-        for (int i = 0; i < str.length; i++) {
-            System.out.println(str[i]);
-            //System.out.println(str[0]);
-            //System.out.println("hahhahhahshh---");
+    static void getVT(ArrayList rightList) {
+        String[] str;
+        for (int i = 0; i < rightList.size(); i++) {
+            rightsplited = rightList.get(i).toString().split("\\|");
         }
-        return str;
+        for (int i = 0; i < rightsplited.length; i++) {
+            str = rightsplited[i].split("");
+            for (int j = 0; j < str.length; j++) {
+                System.out.println(str[j]);
+                if (VNend.contains(str[j])) {
+                    System.out.println("有");
+                } else {
+                    System.out.println("没有");
+                }
+            }
+
+        }
     }
 
-    public static List<String> getFirst(List<String> gra) {
-        String[] right;
+    public static List<String> getFirst(ArrayList<String> gra) {
+
         for (int i = 0; i < gra.size(); i++) { // 初始化FIRST集
-            right = gra.get(i).split("->");
-            System.out.println(getStr(right));
-            // System.out.println(getStr(right));
-
-
+            left = gra.get(i).split("->")[0];
+            right = gra.get(i).split("->")[1];
+            VNend.add(left);
+            rightList.add(right);
         }
-        return gra;
+        getVT(rightList);
+        System.out.println(VNend);
+        return rightList;
     }
 
     //预测分析表
     private String[][] analysisTable = new String[][]{
-            {"TE'", "", "", "TE'", "", ""},
-            {"", "+TE'", "", "", "ε", "ε"},
-            {"FT'", "", "", "FT'", "", ""},
-            {"", "ε", "*FT'", "", "ε", "ε"},
+            {"TP", "", "", "TP", "", ""},
+            {"", "+TP", "", "", "ε", "ε"},
+            {"FQ", "", "", "FQ", "", ""},
+            {"", "ε", "*FQ", "", "ε", "ε"},
             {"i", "", "", "(E)", "", ""}
     };
 
@@ -136,8 +141,8 @@ public class Analysis {
 
     //判断X是否是终结符
     private boolean XisVT() {
-        for (int i = 0; i < (VT.length - 1); i++) {
-            if (VT[i].equals(X)) {
+        for (int i = 0; i < (VT.size() - 1); i++) {
+            if (VT.get(i).equals(X)) {
                 return true;
             }
         }
@@ -147,13 +152,13 @@ public class Analysis {
     //查找X在非终结符中分析表中的横坐标
     private String VNTI() {
         int Ni = 0, Tj = 0;
-        for (int i = 0; i < VN.length; i++) {
-            if (VN[i].equals(X)) {
+        for (int i = 0; i < VNend.size(); i++) {
+            if (VNend.get(i).equals(X)) {
                 Ni = i;
             }
         }
-        for (int j = 0; j < VT.length; j++) {
-            if (VT[j].equals(shuru1)) {
+        for (int j = 0; j < VT.size(); j++) {
+            if (VT.get(j).equals(shuru1)) {
                 Tj = j;
             }
         }
@@ -246,7 +251,7 @@ public class Analysis {
     //打印存储分析表
     private void printf() {
         if (!flag) {
-            System.out.println("****分析成功啦！****");
+            System.out.println("****分析成功！****");
         } else {
             System.out.println("****分析失败了****");
         }

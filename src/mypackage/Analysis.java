@@ -1,3 +1,4 @@
+package mypackage;
 /**
  * Created by lmy on 17-11-25.
  * LL(1)文法　预测分析法
@@ -13,16 +14,18 @@ public class Analysis {
 
     private static ArrayList<String> gra = new ArrayList();
     private static ArrayList<String> rightList = new ArrayList();
+    private static ArrayList<String> myFirst = new ArrayList();
+    private static ArrayList<String> myFllow = new ArrayList();
     private static String[] rightsplited;
     private static String right;
     private static String left;
     //终结符
     private static ArrayList<String> VT = new ArrayList<String>();
     //非终结符
-    private static ArrayList<String> VNend = new ArrayList<String>();
+    private static List<String> VNend = new ArrayList<String>();
 
     private ArrayList<String> getGrammar() throws IOException {
-        File file = new File("src/grammer.txt");
+        File file = new File("src/mypackage/grammer.txt");
         if (!file.exists()) {
             try {
                 file.createNewFile();
@@ -41,32 +44,61 @@ public class Analysis {
         return null;
     }
 
-
     //输入串strToken
     private StringBuilder strToken = new StringBuilder("i*i+i");
 
-    static void getVT(ArrayList rightList) {
+    private static void getVTChar() {
         String[] str;
-        for (int i = 0; i < rightList.size(); i++) {
-            rightsplited = rightList.get(i).toString().split("\\|");
-        }
         for (int i = 0; i < rightsplited.length; i++) {
             str = rightsplited[i].split("");
             for (int j = 0; j < str.length; j++) {
-                System.out.println(str[j]);
+                // System.out.println(str[j]);
                 if (VNend.contains(str[j])) {
-                    System.out.println("有");
+                    // System.out.println("有");
                 } else {
-                    System.out.println("没有");
+                    VT.add(str[j]);
+                    //  System.out.println("没有");
                 }
             }
+        }
+    }
+
+    static void getVT(ArrayList rightList) {
+
+        for (int i = 0; i < rightList.size(); i++) {
+            rightsplited = rightList.get(i).toString().split("\\|");
+            getVTChar();
+        }
+
+    }
+
+
+    private static void first(ArrayList<String> r, String c) {
+
+        for (int j = 0; j < r.size(); j++) {
+            rightsplited = r.get(j).toString().split("\\|");
+            for (int k = 0; k < rightsplited.length; k++) {
+                String[] t = rightsplited[k].split("");
+                //System.out.println(t);
+                System.out.println(t[0]);
+                if (VNend.contains(t[0])) {
+                    System.out.println("-------");
+
+                } else {
+                    myFirst.add(t[0] + "");
+                }
+            }
+            System.out.println(myFirst);
+            System.out.println("--------===---------");
+            myFirst = new ArrayList<>();
+            //System.out.println(myFirst);
 
         }
     }
 
-    public static List<String> getFirst(ArrayList<String> gra) {
+    private static List<String> getFirst(ArrayList<String> gra) {
 
-        for (int i = 0; i < gra.size(); i++) { // 初始化FIRST集
+        for (int i = 0; i < gra.size(); i++) {
             left = gra.get(i).split("->")[0];
             right = gra.get(i).split("->")[1];
             VNend.add(left);
@@ -74,6 +106,8 @@ public class Analysis {
         }
         getVT(rightList);
         System.out.println(VNend);
+        System.out.println(VT);
+        first(rightList, VT.get(0));
         return rightList;
     }
 
@@ -81,8 +115,8 @@ public class Analysis {
     private String[][] analysisTable = new String[][]{
             {"TP", "", "", "TP", "", ""},
             {"", "+TP", "", "", "ε", "ε"},
-            {"FQ", "", "", "FQ", "", ""},
-            {"", "ε", "*FQ", "", "ε", "ε"},
+            {"F", "", "", "F", "", ""},
+            {"", "ε", "*F", "", "ε", "ε"},
             {"i", "", "", "(E)", "", ""}
     };
 
@@ -179,21 +213,19 @@ public class Analysis {
         String ch;
         //处理TE' FT' *FT'特殊情况
         switch (M) {
-            case "TE'":
-                stack.push("E'");
+            case "TP":
+                stack.push("P");
                 stack.push("T");
                 break;
-            case "FT'":
-                stack.push("T'");
+            case "F":
                 stack.push("F");
                 break;
-            case "*FT'":
-                stack.push("T'");
+            case "*F":
                 stack.push("F");
                 stack.push("*");
                 break;
-            case "+TE'":
-                stack.push("E'");
+            case "+TP":
+                stack.push("P");
                 stack.push("T");
                 stack.push("+");
                 break;

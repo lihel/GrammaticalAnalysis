@@ -17,7 +17,10 @@ public class TableE {
     }
 
     public void print(){//打印当前的表格对象
-        System.out.println("["+this.nT+"] ["+this.yT+"] ("+this.exp+ ") ");
+
+        System.out.printf("%-10s %-20s %-20s\n", this.nT, this.yT, this.exp);
+
+       // System.out.println("["+this.nT+"] ["+this.yT+"] ("+this.exp+ ") ");
     }
     public String getNT() {//获得非终结符。
         return this.nT;

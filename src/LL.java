@@ -1,6 +1,7 @@
 /**
  * Created by lmy on 17-11-27.
  */
+
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -80,8 +81,7 @@ public class LL {
 
     public void pretreatment(String line) {// 对输入字符进行预处理。分割 形如
         // A->B|a的表达式为A->B和A->a
-        Pattern p = Pattern
-                .compile("([A-Z]?[']?)([-]?[>]?)([\\w\\W &&[^|]]*)([|]?)");// 重复问题。
+        Pattern p = Pattern.compile("([A-Z]?[']?)([-]?[>]?)([\\w\\W &&[^|]]*)([|]?)");// 重复问题。
         Matcher m = p.matcher(line);
         String emp = "";
         boolean flag = false;
@@ -211,10 +211,9 @@ public class LL {
     }
 
     private void findFollowP() {// 创建follow集
-        Pattern p = Pattern
-                .compile("([A-Z]?[']?)([-]?[>]?)([\\w\\W &&[^A-Z]]*)([[A-Z][']?]*)([\\w\\W &&[^A-Z]]*)");
+        Pattern p = Pattern.compile("([A-Z]?[']?)([-]?[>]?)([\\w\\W &&[^A-Z]]*)([[A-Z][']?]*)([\\w\\W &&[^A-Z]]*)");
         Iterator<String> it = prt.iterator();
-        Matcher m = null;
+        Matcher m = null;//匹配到返回true,否则返回false
         boolean IsFirst = true;
         while (it.hasNext()) {
             String wf = it.next();
@@ -397,11 +396,13 @@ public class LL {
 
     private void printT() {// 打印整张表格
         Iterator<TableE> it = table.iterator();
-        System.out.println("创建的LL(1)分析表：");
+        System.out.println("创建的LL(1)预测分析表：");
+
         String emp = "";
+
         while (it.hasNext()) {
             TableE t = it.next();
-            String current = t.getNT();
+            String current = t.getNT();//获取非终结符
             if (current.equals(emp))
                 t.print();
             else {

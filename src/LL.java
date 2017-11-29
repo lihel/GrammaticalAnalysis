@@ -547,7 +547,7 @@ public class LL {
         return "";
     }
 
-    private void pushStack() {
+    private void pushStack() {//出栈入栈函数
         //getright(top);
 
         stack.pop();

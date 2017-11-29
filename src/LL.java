@@ -3,9 +3,7 @@
  */
 
 import java.io.*;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
+import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -14,6 +12,10 @@ public class LL {
     private static List<First> first = new ArrayList<First>();
     private static List<First> follow = new ArrayList<First>();
     private static List<TableE> table = new ArrayList<TableE>();
+    //输入串strToken
+    private static StringBuilder strToken = new StringBuilder();
+    //分析栈stack
+    private Deque<String> stack = new ArrayDeque<>();
 
     public static void main(String[] args) {
         LL l = new LL();
@@ -38,7 +40,7 @@ public class LL {
         /*******************************************************/
         l.createTable();// 创建LL(1)表
         l.printT();// 打印表
-
+        l.inputStr(strToken);
     }
 
     public void read() {// 读取文件函数
@@ -77,6 +79,14 @@ public class LL {
             e.printStackTrace();
         }
 
+    }
+
+    private StringBuilder inputStr(StringBuilder strb) {
+        Scanner input = new Scanner(System.in);
+        System.out.println("请输入待分析的串：");
+        String s = input.nextLine();
+        strb.append(s);
+        return strb;
     }
 
     public void pretreatment(String line) {// 对输入字符进行预处理。分割 形如
@@ -131,7 +141,7 @@ public class LL {
         while (it.hasNext()) {
             Matcher m = p.matcher(it.next());
             if (m.find() && m.group(3).length() > 0) {
-                // System.out.println(m.group(1));
+                 //System.out.println(m.group(1));
                 if (!cmpAdd(m.group(1), m.group(3), first)) {
                     First fc = new First(m.group(1));
                     // System.out.println(m.group(1));
@@ -345,8 +355,7 @@ public class LL {
                         // System.out.println(m.group(1));
                         if (ft.conteinChar(m.group(3).charAt(0))) {
                             // System.out.println(m.group(1));
-                            TableE t = new TableE(m.group(1), m.group(3)
-                                    .charAt(0), exp);
+                            TableE t = new TableE(m.group(1), m.group(3).charAt(0), exp);
                             if (!isHas(t))
                                 table.add(t);
                         }

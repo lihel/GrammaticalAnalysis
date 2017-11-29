@@ -16,6 +16,20 @@ public class LL {
     private static StringBuilder strToken = new StringBuilder();
     //分析栈stack
     private Deque<String> stack = new ArrayDeque<>();
+    //shuru1保存从输入串中读取的一个输入符号，当前符号
+    private String shuru1 = null;
+
+    //top中保存stack栈顶符号
+    private String top = null;
+
+    //flag标志预测分析是否成功
+    private boolean flag = true;
+
+    //记录输入串中当前字符的位置
+    private int cur = 0;
+
+    //记录步数
+    private int count = 0;
 
     public static void main(String[] args) {
         LL l = new LL();
@@ -41,6 +55,10 @@ public class LL {
         l.createTable();// 创建LL(1)表
         l.printT();// 打印表
         l.inputStr(strToken);
+        l.init();
+        l.totalControlProgram();
+
+        l.printf();
     }
 
     public void read() {// 读取文件函数
@@ -141,7 +159,7 @@ public class LL {
         while (it.hasNext()) {
             Matcher m = p.matcher(it.next());
             if (m.find() && m.group(3).length() > 0) {
-                 //System.out.println(m.group(1));
+                //System.out.println(m.group(1));
                 if (!cmpAdd(m.group(1), m.group(3), first)) {
                     First fc = new First(m.group(1));
                     // System.out.println(m.group(1));
@@ -187,6 +205,7 @@ public class LL {
                 } while (flag);
             } else if (m.find()) {// 如果表达式不符合Y->Y1Y2Y3......Yk的形式则执行
                 // System.out.println(m.group(1)+" "+m.group(3));
+                System.out.println("-------" + m.group(3));
                 First f1 = findE(m.group(1), first);
                 First f2 = findE(m.group(3), first);
                 f1.addf(f2.exceptZore());
@@ -421,4 +440,171 @@ public class LL {
             }
         }
     }
+
+    //返回输入串中当前位置的字母
+    private String curCharacter() {
+        shuru1 = String.valueOf(strToken.charAt(cur));
+        return shuru1;
+    }
+
+    private void init() {
+        strToken.append("#");
+        stack.push("#");
+        System.out.printf("%-8s %-18s %-17s %s\n", "步骤 ", "符号栈 ", "输入串 ", "所用产生式 ");
+        String[] s = prt.get(0).split("->");
+        //System.out.println(s[0]);
+        stack.push(s[0]);
+        curCharacter();
+        System.out.printf("%-10d %-20s %-20s\n", count, stack.toString(), strToken.substring(cur, strToken.length()));
+    }
+
+    //读取当前栈顶符号
+    private void stackPeek() {
+        top = stack.peekFirst();
+    }
+
+    //出现错误
+    private void ERROR() {
+        System.out.println("输入串出现错误，无法进行分析");
+        System.exit(0);
+    }
+
+    //打印存储分析表
+    private void printf() {
+        if (!flag) {
+            System.out.println("****分析成功！****");
+        } else {
+            System.out.println("****分析失败!****");
+        }
+    }
+
+    private boolean isVT(String top) { //判断知否为终结符,是返回true
+        Iterator<String> it = prt.iterator();
+        Pattern p = Pattern
+                .compile("([A-Z]?[']?)([-]?[>]?)([\\w\\W &&[^A-Z]]*)([[A-Z][']?]*)([\\w\\W &&[^A-Z]]*)");
+        Matcher m = null;
+
+        while (it.hasNext()) {
+            String exp = it.next();
+            m = p.matcher(exp);
+            boolean b = m.find();
+            //System.out.println(b);
+            /*System.out.println(m.group(0));
+            System.out.println(m.group(1));
+            System.out.println(m.group(2));
+            System.out.println(m.group(3));//左终结符
+            System.out.println(m.group(4));
+            System.out.println(m.group(5));//右终结符*/
+            if (top.equals(m.group(3)) || top.equals(m.group(5))) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    //判断M[A,a]={X->X1X2...Xk}
+    //把X1X2...Xk推进栈
+    //X1X2...Xk=ε，不推什么进栈
+    private boolean productionType() {
+        return VNTI() != "";
+    }
+
+    //查找top在非终结符中分析表中的表达式
+    private String VNTI() {
+        Iterator<TableE> it = table.iterator();
+        String str = "";
+        while (it.hasNext()) {
+            TableE t = it.next();
+            char current = t.getyT();//获取终结符
+            str = t.getT(current);
+            if (top.equals(t.getNT()) && str != "") {
+                //System.out.println(str);
+                return str;
+            }
+        }
+        return "";
+    }
+
+    private String getright(String s) {
+
+        Iterator<TableE> it = table.iterator();
+        Pattern p = Pattern.compile("([A-Z][']?)(->)([\\w\\W&&[^A-Z]]?)");
+        Matcher m = null;
+        while (it.hasNext()) {
+            TableE t = it.next();
+            if (t.getNT().equals(s)) {
+                m = p.matcher(t.toString());
+                boolean b = m.find();
+                if (b && m.group(3).length() > 0) {
+                    System.out.println(m.group(3));
+                    return m.group(3);
+                }
+            }
+
+            // System.out.println(b);
+
+        }
+        return "";
+    }
+
+    private void pushStack() {
+        //getright(top);
+
+        stack.pop();
+
+        String M = VNTI();
+        String ch;
+        //处理TE' FT' *FT'特殊情况
+        Iterator<TableE> it = table.iterator();
+        Pattern p = Pattern.compile("([A-Z][']?)(->)([\\w\\W&&[^A-Z]]?)");
+        Matcher m = null;
+        while (it.hasNext()) {
+            TableE exp = it.next();
+            m = p.matcher(exp.toString());
+            boolean b = m.find();
+            if (b && m.group(3).length() > 0) {
+
+                System.out.println(m.group(3));
+            }
+        }
+        System.out.printf("%-10d %-20s %-20s %s\n", (++count), stack.toString(), strToken.substring(cur, strToken.length()), M);
+    }
+
+
+    //总控程序
+    private void totalControlProgram() {
+        while (flag) {
+            stackPeek();
+            if (isVT(top)) {
+                if (top.equals(shuru1)) {
+                    cur++;
+                    shuru1 = curCharacter();
+                    stack.pop();
+                    System.out.printf("%-10d %-20s %-20s \n", (++count), stack.toString(), strToken.substring(cur, strToken.length()));
+                } else {
+                    ERROR();
+                }
+            } else if (top.equals("#")) {
+                if (top.equals(shuru1)) {
+                    flag = false;
+                } else {
+                    ERROR();
+                }
+            } else if (productionType()) {
+
+                if (VNTI().equals("")) {
+                    ERROR();
+                } else if (VNTI().equals("ε")) {
+                    stack.pop();
+                    System.out.printf("%-10d %-20s %-20s %s->%s\n", (++count), stack.toString(), strToken.substring(cur, strToken.length()), top, VNTI());
+                } else {
+                    pushStack();
+                }
+            } else {
+                ERROR();
+            }
+        }
+    }
+
+
 }

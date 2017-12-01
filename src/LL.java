@@ -525,48 +525,37 @@ public class LL {
         return "";
     }
 
-    private String getright(String s) {
+    private String[] getright(String s) {
+        int p = 0;
+        String[] res = new String[10];
+        String[] str = s.split("->");
+//        System.out.println(str[1]);
 
-        Iterator<TableE> it = table.iterator();
-        Pattern p = Pattern.compile("([A-Z][']?)(->)([\\w\\W&&[^A-Z]]?)");
-        Matcher m = null;
-        while (it.hasNext()) {
-            TableE t = it.next();
-            if (t.getNT().equals(s)) {
-                m = p.matcher(t.toString());
-                boolean b = m.find();
-                if (b && m.group(3).length() > 0) {
-                    System.out.println(m.group(3));
-                    return m.group(3);
-                }
+        String[] r = str[1].split("");
+        String l = r[0];
+        //System.out.println(l);
+        for (int i = 0; i < r.length - 1; i++) {
+            res[p++] = r[i];
+            if (r[i + 1].equals("'")) {
+                r[i] = r[i].toString() + "'";
+                res[p++] = r[i];
+            } else if (r[i] == "'") {
+                i++;
             }
-
-            // System.out.println(b);
-
         }
-        return "";
+
+        for (int i = r.length - 2; i >= 0; i--) {
+            stack.push(r[i]);
+        }
+        return res;
     }
 
     private void pushStack() {//出栈入栈函数
-        //getright(top);
-
         stack.pop();
 
         String M = VNTI();
-        String ch;
-        //处理TE' FT' *FT'特殊情况
-        Iterator<TableE> it = table.iterator();
-        Pattern p = Pattern.compile("([A-Z][']?)(->)([\\w\\W&&[^A-Z]]?)");
-        Matcher m = null;
-        while (it.hasNext()) {
-            TableE exp = it.next();
-            m = p.matcher(exp.toString());
-            boolean b = m.find();
-            if (b && m.group(3).length() > 0) {
+        String[] s = getright(M);
 
-                System.out.println(m.group(3));
-            }
-        }
         System.out.printf("%-10d %-20s %-20s %s\n", (++count), stack.toString(), strToken.substring(cur, strToken.length()), M);
     }
 
@@ -576,11 +565,13 @@ public class LL {
         while (flag) {
             stackPeek();
             if (isVT(top)) {
+
                 if (top.equals(shuru1)) {
                     cur++;
                     shuru1 = curCharacter();
-                    stack.pop();
                     System.out.printf("%-10d %-20s %-20s \n", (++count), stack.toString(), strToken.substring(cur, strToken.length()));
+                    stack.pop();
+                    stack.push(shuru1);
                 } else {
                     ERROR();
                 }

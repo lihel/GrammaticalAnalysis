@@ -23,6 +23,9 @@ public class LL {
     private String top = null;
     String M = "";
     String stM;
+    String[] res;
+    String[] str;
+    String[] r;
     //flag标志预测分析是否成功
     private boolean flag = true;
     private String pop;
@@ -514,8 +517,6 @@ public class LL {
     private String VNTI() {
         Iterator<TableE> it = table.iterator();
         String str = "";
-//        System.out.println("this is top");
-//        System.out.println(top);
         while (it.hasNext()) {
             TableE t = it.next();
             char current = t.getyT();//获取终结符
@@ -528,15 +529,34 @@ public class LL {
         return str;
     }
 
-    private String[] getright(String s) {
+    private void push(String s) {
         int p = 0;
-        String[] res = new String[10];
-        String[] str = s.split("->");
-//        System.out.println(str[1]);
+        res = new String[10];
+        str = s.split("->");
+        r = str[1].split("");
+        for (int i = 0; i < r.length - 1; i++) {
+            res[p++] = r[i];
+            if (r[i + 1].equals("'")) {
+                r[i] = r[i].toString() + "'";
+                res[p++] = r[i];
+            } else if (r[i] == "'") {
+                i++;
+            }
+        }
 
-        String[] r = str[1].split("");
+        for (int i = r.length - 2; i >= 0; i--) {
+            stack.push(r[i]);
+        }
+    }
+
+    private String[] getright(String s) {
+
+        res = new String[10];
+        str = s.split("->");
+        r = str[1].split("");
         String lfirstVT = r[0];
-        // System.out.println(lfirstVT);
+        System.out.println("lfirstVT");
+        System.out.println(lfirstVT);
         if (isVT(lfirstVT)) { //为终结符
             if (!lfirstVT.equals(shuru1)) {
                 Iterator<TableE> it = table.iterator();
@@ -553,29 +573,20 @@ public class LL {
                         String q = String.valueOf(current);
                         if (shuru1.equals(q)) {
                             stM = t.getT(current);
-                            M=stM;
+                            M = stM;
                             stack.push(q);
+                           /* cur++;
+                            shuru1 = curCharacter();*/
                         }
                     }
                 }
             }
-
         } else {
-            for (int i = 0; i < r.length - 1; i++) {
-                res[p++] = r[i];
-                if (r[i + 1].equals("'")) {
-                    r[i] = r[i].toString() + "'";
-                    res[p++] = r[i];
-                } else if (r[i] == "'") {
-                    i++;
-                }
-            }
-
-            for (int i = r.length - 2; i >= 0; i--) {
-                stack.push(r[i]);
-            }
+            push(s);
         }
-
+        if (lfirstVT.equals(shuru1)) {
+            push(s);
+        }
         return res;
     }
 
@@ -584,6 +595,7 @@ public class LL {
 
         if (!isVT(top)) {
             M = VNTI();
+            System.out.println("MMMMMMMMMM");
             System.out.println(M);
             getright(M);
         } else {
@@ -591,12 +603,11 @@ public class LL {
             System.out.println(top);
 
             if (top.equals(shuru1)) {
-                //stack.pop();
                 cur++;
                 shuru1 = curCharacter();
-                System.out.println(stack.toString());
-                System.out.println("popIIIIIIIIIIIii");
+               // System.out.println(shuru1);
                 System.out.printf("%-10d %-20s %-20s \n", (++count), stack.toString(), strToken.substring(cur, strToken.length()));
+                return;
             }
 
         }

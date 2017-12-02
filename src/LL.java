@@ -515,37 +515,13 @@ public class LL {
         String str = "";
 //        System.out.println("this is top");
 //        System.out.println(top);
-        if (!isVT(top)) {
-            while (it.hasNext()) {
-                TableE t = it.next();
-                char current = t.getyT();//获取终结符
-                str = t.getT(current);
-                if (top.equals(t.getNT()) && str != "") {
-                    //System.out.println(str);
-                    return str;
-                }
-            }
-        } else {
-            System.out.println("==========");
-            System.out.println(top);
-            System.out.println(pop);
-            while (it.hasNext()) {
-                TableE t = it.next();
-                char current = t.getyT();//获取终结符
-                // System.out.println(current);
-
-                if (pop.equals(t.getNT())) {
-                    System.out.println(current);
-                    String q = String.valueOf(current);
-                    if (top.equals(q)) {
-                        System.out.println("jdsufhduiahuihfgui");
-                        System.out.println(current);
-                        str = t.getT(current);
-                        System.out.println("--------");
-                        System.out.println(str);
-                        // return str;
-                    }
-                }
+        while (it.hasNext()) {
+            TableE t = it.next();
+            char current = t.getyT();//获取终结符
+            str = t.getT(current);
+            if (top.equals(t.getNT()) && str != "") {
+                //System.out.println(str);
+                return str;
             }
         }
         return str;
@@ -562,8 +538,29 @@ public class LL {
         // System.out.println(lfirstVT);
         if (isVT(lfirstVT)) { //为终结符
             if (!lfirstVT.equals(shuru1)) {
-                stack.push(shuru1);
-                System.out.printf("%-10d %-20s %-20s \n", (++count), stack.toString(), strToken.substring(cur, strToken.length()));
+                Iterator<TableE> it = table.iterator();
+                String st = "";
+                System.out.println("==========");
+//                System.out.println(top);
+//                System.out.println(pop);
+                while (it.hasNext()) {
+                    TableE t = it.next();
+                    char current = t.getyT();//获取终结符
+                    // System.out.println(current);
+
+                    if (pop.equals(t.getNT())) {
+                        //System.out.println(current);
+                        String q = String.valueOf(current);
+                        if (shuru1.equals(q)) {
+                            st = t.getT(current);
+                            stack.push(q);
+                            // System.out.println("--------");
+                            // System.out.println(st);
+                            System.out.printf("%-10d %-20s %-20s %s\n", (++count), stack.toString(), strToken.substring(cur, strToken.length()), st);
+
+                        }
+                    }
+                }
             } else if (lfirstVT.equals(shuru1)) {
 
                 cur++;
@@ -594,12 +591,20 @@ public class LL {
 
     private void pushStack() {//出栈入栈函数
         pop = stack.pop();
+        String M = "";
+        if (!isVT(top)) {
+            M = VNTI();
+            System.out.println(M);
+            getright(M);
+        } else {
+            if (top.equals(shuru1)) {
+                cur++;
+                shuru1 = curCharacter();
+                stack.pop();
+                System.out.printf("%-10d %-20s %-20s \n", (++count), stack.toString(), strToken.substring(cur, strToken.length()));
+            }
 
-        String M = VNTI();
-        // System.out.println("MMMMMMM");
-        System.out.println(M);
-        String[] s = getright(M);
-
+        }
         System.out.printf("%-10d %-20s %-20s %s\n", (++count), stack.toString(), strToken.substring(cur, strToken.length()), M);
     }
 
@@ -615,7 +620,6 @@ public class LL {
                     ERROR();
                 }
             } else if (productionType()) {
-
                 pushStack();
             } else {
                 ERROR();

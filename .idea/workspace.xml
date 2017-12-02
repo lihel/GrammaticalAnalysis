@@ -30,8 +30,8 @@
       <file leaf-file-name="LL.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/LL.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="680">
-              <caret line="614" column="24" lean-forward="true" selection-start-line="614" selection-start-column="24" selection-end-line="614" selection-end-column="24" />
+            <state relative-caret-position="146">
+              <caret line="510" column="0" lean-forward="true" selection-start-line="510" selection-start-column="0" selection-end-line="510" selection-end-column="0" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
                 <element signature="imports" expanded="true" />
@@ -48,17 +48,18 @@
                 <element signature="method#findE#0;class#LL#0" expanded="false" />
                 <element signature="method#cmpAdd#0;class#LL#0" expanded="false" />
                 <element signature="method#findFollowP#0;class#LL#0" expanded="false" />
-                <element signature="e#9920#9928#0" expanded="true" />
-                <element signature="e#9992#10000#0" expanded="true" />
+                <element signature="e#9943#9951#0" expanded="true" />
+                <element signature="e#10015#10023#0" expanded="true" />
+                <element signature="method#createTable#0;class#LL#0" expanded="false" />
                 <element signature="method#isHas#0;class#LL#0" expanded="false" />
                 <element signature="method#IsSingle#0;class#LL#0" expanded="false" />
+                <element signature="method#printT#0;class#LL#0" expanded="false" />
+                <element signature="method#curCharacter#0;class#LL#0" expanded="false" />
                 <element signature="method#init#0;class#LL#0" expanded="false" />
-                <element signature="e#16936#16937#0" expanded="true" />
-                <element signature="e#16975#16976#0" expanded="true" />
                 <element signature="method#printf#0;class#LL#0" expanded="false" />
                 <element signature="method#isVT#0;class#LL#0" expanded="false" />
-                <element signature="e#18265#18266#0" expanded="true" />
-                <element signature="e#18300#18301#0" expanded="true" />
+                <element signature="e#18288#18289#0" expanded="true" />
+                <element signature="e#18323#18324#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -110,8 +111,8 @@
       <file leaf-file-name="G(E).txt" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/G(E).txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="80">
-              <caret line="4" column="3" lean-forward="false" selection-start-line="4" selection-start-column="3" selection-end-line="4" selection-end-column="6" />
+            <state relative-caret-position="40">
+              <caret line="2" column="6" lean-forward="true" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="6" />
               <folding />
             </state>
           </provider>
@@ -747,12 +748,12 @@
       <workItem from="1511913710164" duration="20372000" />
       <workItem from="1512094560385" duration="767000" />
       <workItem from="1512096496311" duration="17173000" />
-      <workItem from="1512188327710" duration="8301000" />
+      <workItem from="1512188327710" duration="11495000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="93703000" />
+    <option name="totallyTimeSpent" value="96897000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -789,7 +790,7 @@
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3993808" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -899,17 +900,18 @@
             <element signature="method#findE#0;class#LL#0" expanded="false" />
             <element signature="method#cmpAdd#0;class#LL#0" expanded="false" />
             <element signature="method#findFollowP#0;class#LL#0" expanded="false" />
-            <element signature="e#9920#9928#0" expanded="true" />
-            <element signature="e#9992#10000#0" expanded="true" />
+            <element signature="e#9943#9951#0" expanded="true" />
+            <element signature="e#10015#10023#0" expanded="true" />
+            <element signature="method#createTable#0;class#LL#0" expanded="false" />
             <element signature="method#isHas#0;class#LL#0" expanded="false" />
             <element signature="method#IsSingle#0;class#LL#0" expanded="false" />
+            <element signature="method#printT#0;class#LL#0" expanded="false" />
+            <element signature="method#curCharacter#0;class#LL#0" expanded="false" />
             <element signature="method#init#0;class#LL#0" expanded="false" />
-            <element signature="e#16936#16937#0" expanded="true" />
-            <element signature="e#16975#16976#0" expanded="true" />
             <element signature="method#printf#0;class#LL#0" expanded="false" />
             <element signature="method#isVT#0;class#LL#0" expanded="false" />
-            <element signature="e#18265#18266#0" expanded="true" />
-            <element signature="e#18300#18301#0" expanded="true" />
+            <element signature="e#18288#18289#0" expanded="true" />
+            <element signature="e#18323#18324#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -982,17 +984,18 @@
             <element signature="method#findE#0;class#LL#0" expanded="false" />
             <element signature="method#cmpAdd#0;class#LL#0" expanded="false" />
             <element signature="method#findFollowP#0;class#LL#0" expanded="false" />
-            <element signature="e#9920#9928#0" expanded="true" />
-            <element signature="e#9992#10000#0" expanded="true" />
+            <element signature="e#9943#9951#0" expanded="true" />
+            <element signature="e#10015#10023#0" expanded="true" />
+            <element signature="method#createTable#0;class#LL#0" expanded="false" />
             <element signature="method#isHas#0;class#LL#0" expanded="false" />
             <element signature="method#IsSingle#0;class#LL#0" expanded="false" />
+            <element signature="method#printT#0;class#LL#0" expanded="false" />
+            <element signature="method#curCharacter#0;class#LL#0" expanded="false" />
             <element signature="method#init#0;class#LL#0" expanded="false" />
-            <element signature="e#16936#16937#0" expanded="true" />
-            <element signature="e#16975#16976#0" expanded="true" />
             <element signature="method#printf#0;class#LL#0" expanded="false" />
             <element signature="method#isVT#0;class#LL#0" expanded="false" />
-            <element signature="e#18265#18266#0" expanded="true" />
-            <element signature="e#18300#18301#0" expanded="true" />
+            <element signature="e#18288#18289#0" expanded="true" />
+            <element signature="e#18323#18324#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1072,17 +1075,18 @@
             <element signature="method#findE#0;class#LL#0" expanded="false" />
             <element signature="method#cmpAdd#0;class#LL#0" expanded="false" />
             <element signature="method#findFollowP#0;class#LL#0" expanded="false" />
-            <element signature="e#9920#9928#0" expanded="true" />
-            <element signature="e#9992#10000#0" expanded="true" />
+            <element signature="e#9943#9951#0" expanded="true" />
+            <element signature="e#10015#10023#0" expanded="true" />
+            <element signature="method#createTable#0;class#LL#0" expanded="false" />
             <element signature="method#isHas#0;class#LL#0" expanded="false" />
             <element signature="method#IsSingle#0;class#LL#0" expanded="false" />
+            <element signature="method#printT#0;class#LL#0" expanded="false" />
+            <element signature="method#curCharacter#0;class#LL#0" expanded="false" />
             <element signature="method#init#0;class#LL#0" expanded="false" />
-            <element signature="e#16936#16937#0" expanded="true" />
-            <element signature="e#16975#16976#0" expanded="true" />
             <element signature="method#printf#0;class#LL#0" expanded="false" />
             <element signature="method#isVT#0;class#LL#0" expanded="false" />
-            <element signature="e#18265#18266#0" expanded="true" />
-            <element signature="e#18300#18301#0" expanded="true" />
+            <element signature="e#18288#18289#0" expanded="true" />
+            <element signature="e#18323#18324#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1154,17 +1158,18 @@
             <element signature="method#findE#0;class#LL#0" expanded="false" />
             <element signature="method#cmpAdd#0;class#LL#0" expanded="false" />
             <element signature="method#findFollowP#0;class#LL#0" expanded="false" />
-            <element signature="e#9920#9928#0" expanded="true" />
-            <element signature="e#9992#10000#0" expanded="true" />
+            <element signature="e#9943#9951#0" expanded="true" />
+            <element signature="e#10015#10023#0" expanded="true" />
+            <element signature="method#createTable#0;class#LL#0" expanded="false" />
             <element signature="method#isHas#0;class#LL#0" expanded="false" />
             <element signature="method#IsSingle#0;class#LL#0" expanded="false" />
+            <element signature="method#printT#0;class#LL#0" expanded="false" />
+            <element signature="method#curCharacter#0;class#LL#0" expanded="false" />
             <element signature="method#init#0;class#LL#0" expanded="false" />
-            <element signature="e#16936#16937#0" expanded="true" />
-            <element signature="e#16975#16976#0" expanded="true" />
             <element signature="method#printf#0;class#LL#0" expanded="false" />
             <element signature="method#isVT#0;class#LL#0" expanded="false" />
-            <element signature="e#18265#18266#0" expanded="true" />
-            <element signature="e#18300#18301#0" expanded="true" />
+            <element signature="e#18288#18289#0" expanded="true" />
+            <element signature="e#18323#18324#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1319,14 +1324,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/G(E).txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="80">
-          <caret line="4" column="3" lean-forward="false" selection-start-line="4" selection-start-column="3" selection-end-line="4" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/TableE.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="113">
@@ -1338,10 +1335,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/G(E).txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="40">
+          <caret line="2" column="6" lean-forward="true" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/LL.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="680">
-          <caret line="614" column="24" lean-forward="true" selection-start-line="614" selection-start-column="24" selection-end-line="614" selection-end-column="24" />
+        <state relative-caret-position="146">
+          <caret line="510" column="0" lean-forward="true" selection-start-line="510" selection-start-column="0" selection-end-line="510" selection-end-column="0" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
             <element signature="imports" expanded="true" />
@@ -1358,17 +1363,18 @@
             <element signature="method#findE#0;class#LL#0" expanded="false" />
             <element signature="method#cmpAdd#0;class#LL#0" expanded="false" />
             <element signature="method#findFollowP#0;class#LL#0" expanded="false" />
-            <element signature="e#9920#9928#0" expanded="true" />
-            <element signature="e#9992#10000#0" expanded="true" />
+            <element signature="e#9943#9951#0" expanded="true" />
+            <element signature="e#10015#10023#0" expanded="true" />
+            <element signature="method#createTable#0;class#LL#0" expanded="false" />
             <element signature="method#isHas#0;class#LL#0" expanded="false" />
             <element signature="method#IsSingle#0;class#LL#0" expanded="false" />
+            <element signature="method#printT#0;class#LL#0" expanded="false" />
+            <element signature="method#curCharacter#0;class#LL#0" expanded="false" />
             <element signature="method#init#0;class#LL#0" expanded="false" />
-            <element signature="e#16936#16937#0" expanded="true" />
-            <element signature="e#16975#16976#0" expanded="true" />
             <element signature="method#printf#0;class#LL#0" expanded="false" />
             <element signature="method#isVT#0;class#LL#0" expanded="false" />
-            <element signature="e#18265#18266#0" expanded="true" />
-            <element signature="e#18300#18301#0" expanded="true" />
+            <element signature="e#18288#18289#0" expanded="true" />
+            <element signature="e#18323#18324#0" expanded="true" />
           </folding>
         </state>
       </provider>

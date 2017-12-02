@@ -24,7 +24,7 @@ public class LL {
 
     //flag标志预测分析是否成功
     private boolean flag = true;
-
+    private String pop;
     //记录输入串中当前字符的位置
     private int cur = 0;
 
@@ -527,18 +527,28 @@ public class LL {
             }
         } else {
             System.out.println("==========");
+            System.out.println(top);
+            System.out.println(pop);
             while (it.hasNext()) {
                 TableE t = it.next();
                 char current = t.getyT();//获取终结符
-                str = t.getT(current);
-                if (top.equals(current) && str != "") {
-                    //System.out.println(str);
-                    return str;
+                // System.out.println(current);
+
+                if (pop.equals(t.getNT())) {
+                    System.out.println(current);
+                    String q = String.valueOf(current);
+                    if (top.equals(q)) {
+                        System.out.println("jdsufhduiahuihfgui");
+                        System.out.println(current);
+                        str = t.getT(current);
+                        System.out.println("--------");
+                        System.out.println(str);
+                        // return str;
+                    }
                 }
             }
         }
-
-        return "";
+        return str;
     }
 
     private String[] getright(String s) {
@@ -562,8 +572,6 @@ public class LL {
 
                 System.out.printf("%-10d %-20s %-20s \n", (++count), stack.toString(), strToken.substring(cur, strToken.length()));
                 stack.pop();
-
-                //stack.push(shuru1);
             }
         } else {
             for (int i = 0; i < r.length - 1; i++) {
@@ -585,9 +593,11 @@ public class LL {
     }
 
     private void pushStack() {//出栈入栈函数
-        stack.pop();
+        pop = stack.pop();
 
         String M = VNTI();
+        // System.out.println("MMMMMMM");
+        System.out.println(M);
         String[] s = getright(M);
 
         System.out.printf("%-10d %-20s %-20s %s\n", (++count), stack.toString(), strToken.substring(cur, strToken.length()), M);
@@ -606,11 +616,7 @@ public class LL {
                 }
             } else if (productionType()) {
 
-                if (VNTI().equals("")) {
-                    ERROR();
-                } else {
-                    pushStack();
-                }
+                pushStack();
             } else {
                 ERROR();
             }

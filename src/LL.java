@@ -525,8 +525,17 @@ public class LL {
                     return str;
                 }
             }
-        } if(isVT(top)) {
+        } else {
             System.out.println("==========");
+            while (it.hasNext()) {
+                TableE t = it.next();
+                char current = t.getyT();//获取终结符
+                str = t.getT(current);
+                if (top.equals(current) && str != "") {
+                    //System.out.println(str);
+                    return str;
+                }
+            }
         }
 
         return "";
@@ -545,7 +554,7 @@ public class LL {
             if (!lfirstVT.equals(shuru1)) {
                 stack.push(shuru1);
                 System.out.printf("%-10d %-20s %-20s \n", (++count), stack.toString(), strToken.substring(cur, strToken.length()));
-            } else if(lfirstVT.equals(shuru1)){
+            } else if (lfirstVT.equals(shuru1)) {
 
                 cur++;
                 shuru1 = curCharacter();
@@ -589,18 +598,7 @@ public class LL {
     private void totalControlProgram() {
         while (flag) {
             stackPeek();
-            if (isVT(top)) {
-
-                if (top.equals(shuru1)) {
-                    cur++;
-                    shuru1 = curCharacter();
-                    System.out.printf("%-10d %-20s %-20s \n", (++count), stack.toString(), strToken.substring(cur, strToken.length()));
-                    stack.pop();
-                    stack.push(shuru1);
-                } else {
-                    ERROR();
-                }
-            } else if (top.equals("#")) {
+            if (top.equals("#")) {
                 if (top.equals(shuru1)) {
                     flag = false;
                 } else {
@@ -610,9 +608,6 @@ public class LL {
 
                 if (VNTI().equals("")) {
                     ERROR();
-                } else if (VNTI().equals("ε")) {
-                    stack.pop();
-                    System.out.printf("%-10d %-20s %-20s %s->%s\n", (++count), stack.toString(), strToken.substring(cur, strToken.length()), top, VNTI());
                 } else {
                     pushStack();
                 }

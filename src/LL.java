@@ -21,7 +21,8 @@ public class LL {
 
     //top中保存stack栈顶符号
     private String top = null;
-
+    String M = "";
+    String stM;
     //flag标志预测分析是否成功
     private boolean flag = true;
     private String pop;
@@ -539,7 +540,6 @@ public class LL {
         if (isVT(lfirstVT)) { //为终结符
             if (!lfirstVT.equals(shuru1)) {
                 Iterator<TableE> it = table.iterator();
-                String st = "";
                 System.out.println("==========");
 //                System.out.println(top);
 //                System.out.println(pop);
@@ -552,24 +552,14 @@ public class LL {
                         //System.out.println(current);
                         String q = String.valueOf(current);
                         if (shuru1.equals(q)) {
-                            st = t.getT(current);
+                            stM = t.getT(current);
+                            M=stM;
                             stack.push(q);
-                            // System.out.println("--------");
-                            // System.out.println(st);
-                            System.out.printf("%-10d %-20s %-20s %s\n", (++count), stack.toString(), strToken.substring(cur, strToken.length()), st);
-
                         }
                     }
                 }
-            } else if (lfirstVT.equals(shuru1)) {
-
-                cur++;
-                shuru1 = curCharacter();
-                System.out.println("hahahhahahahha");
-
-                System.out.printf("%-10d %-20s %-20s \n", (++count), stack.toString(), strToken.substring(cur, strToken.length()));
-                stack.pop();
             }
+
         } else {
             for (int i = 0; i < r.length - 1; i++) {
                 res[p++] = r[i];
@@ -591,16 +581,21 @@ public class LL {
 
     private void pushStack() {//出栈入栈函数
         pop = stack.pop();
-        String M = "";
+
         if (!isVT(top)) {
             M = VNTI();
             System.out.println(M);
             getright(M);
         } else {
+            System.out.println("top");
+            System.out.println(top);
+
             if (top.equals(shuru1)) {
+                //stack.pop();
                 cur++;
                 shuru1 = curCharacter();
-                stack.pop();
+                System.out.println(stack.toString());
+                System.out.println("popIIIIIIIIIIIii");
                 System.out.printf("%-10d %-20s %-20s \n", (++count), stack.toString(), strToken.substring(cur, strToken.length()));
             }
 

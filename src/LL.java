@@ -582,6 +582,7 @@ public class LL {
                             System.out.println("p[0]");
                             System.out.println(p[0]);
                             if (p[0].equals("ε")) {
+                                M = stM;
                                 Empflag = 1;
                             } else {
                                 M = stM;
@@ -606,8 +607,6 @@ public class LL {
     private void pushStack() {//出栈入栈函数
         if (Empflag == 1) {
             stack.pop();
-            System.out.printf("%-10d %-20s %-20s %s\n", (++count), stack.toString(),
-                    strToken.substring(cur, strToken.length()), stM);
         } else {
             pop = stack.pop();
         }

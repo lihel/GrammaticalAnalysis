@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9e617f03-0c64-461a-a09a-0ad11f847736" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/LL.java" afterPath="$PROJECT_DIR$/src/LL.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -31,8 +30,8 @@
       <file leaf-file-name="LL.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/LL.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="113">
-              <caret line="28" column="20" lean-forward="true" selection-start-line="28" selection-start-column="20" selection-end-line="28" selection-end-column="20" />
+            <state relative-caret-position="433">
+              <caret line="585" column="44" lean-forward="true" selection-start-line="585" selection-start-column="44" selection-end-line="585" selection-end-column="44" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
                 <element signature="imports" expanded="true" />
@@ -764,12 +763,12 @@
       <workItem from="1512096496311" duration="17173000" />
       <workItem from="1512188327710" duration="12295000" />
       <workItem from="1512217003986" duration="7509000" />
-      <workItem from="1512276909467" duration="4723000" />
+      <workItem from="1512276909467" duration="5256000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="109929000" />
+    <option name="totallyTimeSpent" value="110462000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1337,8 +1336,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/LL.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="113">
-          <caret line="28" column="20" lean-forward="true" selection-start-line="28" selection-start-column="20" selection-end-line="28" selection-end-column="20" />
+        <state relative-caret-position="433">
+          <caret line="585" column="44" lean-forward="true" selection-start-line="585" selection-start-column="44" selection-end-line="585" selection-end-column="44" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
             <element signature="imports" expanded="true" />

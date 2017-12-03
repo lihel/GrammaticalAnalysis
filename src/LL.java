@@ -26,6 +26,7 @@ public class LL {
     String[] res;
     String[] str;
     String[] r;
+    int Empflag = 0;
     //flag标志预测分析是否成功
     private boolean flag = true;
     private String pop;
@@ -558,6 +559,7 @@ public class LL {
         System.out.println("lfirstVT");
         System.out.println(lfirstVT);
         if (isVT(lfirstVT)) { //为终结符
+
             if (!lfirstVT.equals(shuru1)) {
                 Iterator<TableE> it = table.iterator();
                 System.out.println("==========");
@@ -570,14 +572,24 @@ public class LL {
 
                     if (pop.equals(t.getNT())) {
                         //System.out.println(current);
+                        System.out.println("εεεεεεεεε");
                         String q = String.valueOf(current);
+                        stM = t.getT(current);
+
                         if (shuru1.equals(q)) {
-                            stM = t.getT(current);
-                            M = stM;
-                            stack.push(q);
-                           /* cur++;
-                            shuru1 = curCharacter();*/
+                            String[] temp = stM.split("->");
+                            String[] p = temp[1].split("");
+                            System.out.println("p[0]");
+                            System.out.println(p[0]);
+                            if (p[0].equals("ε")) {
+                                Empflag = 1;
+                            } else {
+                                M = stM;
+                                stack.push(q);
+                            }
+
                         }
+
                     }
                 }
             }
@@ -587,11 +599,19 @@ public class LL {
         if (lfirstVT.equals(shuru1)) {
             push(s);
         }
+
         return res;
     }
 
     private void pushStack() {//出栈入栈函数
-        pop = stack.pop();
+        if (Empflag == 1) {
+            stack.pop();
+            System.out.printf("%-10d %-20s %-20s %s\n", (++count), stack.toString(),
+                    strToken.substring(cur, strToken.length()), stM);
+        } else {
+            pop = stack.pop();
+        }
+
 
         if (!isVT(top)) {
             M = VNTI();
@@ -605,7 +625,7 @@ public class LL {
             if (top.equals(shuru1)) {
                 cur++;
                 shuru1 = curCharacter();
-               // System.out.println(shuru1);
+                // System.out.println(shuru1);
                 System.out.printf("%-10d %-20s %-20s \n", (++count), stack.toString(), strToken.substring(cur, strToken.length()));
                 return;
             }

@@ -21,7 +21,7 @@ public class LL {
 
     //top中保存stack栈顶符号
     private String top = null;
-    String M = "";
+    String M = "";//存储分析表的字符串如 F->i
     String stM;
     String[] res;
     String[] str;
@@ -42,27 +42,22 @@ public class LL {
         System.out.println("读入文法分析分解后为：");
         l.printP();
         l.FindFirstP();
-        /*******************************************************
-         * 应该加入次数控制，判定，全部first集已经不再发生变化，停*
-         * 止调用FindFirstS()函数！*****************************
-         * *****************************************************/
         l.FindFirstS();
         l.FindFirstS();
-        /*******************************************************/
+
         l.findFollowP();
         l.findFollowP();
-        /*******************************************************/
+
         System.out.println("first集：");
         l.printF(first);
         System.out.println("follow集：");
         l.printF(follow);
-        /*******************************************************/
+
         l.createTable();// 创建LL(1)表
         l.printT();// 打印表
         l.inputStr(strToken);
         l.init();
         l.totalControlProgram();
-
         l.printf();
     }
 
@@ -118,11 +113,8 @@ public class LL {
         Matcher m = p.matcher(line);
         String emp = "";
         boolean flag = false;
-
         do {
             flag = false;
-            // boolean b=m.find();
-            // System.out.println("find "+b);
             if (m.find()) {
                 String str = "";
                 if (m.group(1).length() > 0 && m.group(2).length() > 0) {
@@ -136,7 +128,6 @@ public class LL {
 
                 if (m.group(4).length() > 0)
                     flag = true;
-                // System.out.println("flag "+flag);
             }
 
         } while (flag);
@@ -161,6 +152,7 @@ public class LL {
     public void FindFirstP() {// 进行找first集的第一步操作。
         Iterator<String> it = prt.iterator();
         Pattern p = Pattern.compile("([A-Z][']?)(->)([\\w\\W&&[^A-Z]]*)([.]*)");
+        //“.”(点符号)匹配的是除了换行符“\n”以外的所有字符
         while (it.hasNext()) {
             Matcher m = p.matcher(it.next());
             if (m.find() && m.group(3).length() > 0) {
@@ -177,7 +169,7 @@ public class LL {
     }
 
     public void FindFirstS() {// 进行查找first集的进一步操作。
-        Iterator<String> it = prt.iterator();
+        Iterator<String> it = prt.iterator();//迭代器
         while (it.hasNext()) {
             String str = it.next();
             Pattern p = Pattern.compile("([A-Z][']?)(->)([A-Z][']?)");
@@ -556,31 +548,26 @@ public class LL {
         str = s.split("->");
         r = str[1].split("");
         String lfirstVT = r[0];
-        System.out.println("lfirstVT");
-        System.out.println(lfirstVT);
+      /*  System.out.println("lfirstVT");
+        System.out.println(lfirstVT);*/
         if (isVT(lfirstVT)) { //为终结符
 
             if (!lfirstVT.equals(shuru1)) {
                 Iterator<TableE> it = table.iterator();
-                System.out.println("==========");
-//                System.out.println(top);
-//                System.out.println(pop);
                 while (it.hasNext()) {
                     TableE t = it.next();
                     char current = t.getyT();//获取终结符
-                    // System.out.println(current);
-
+                    if (!isVT(top)) {
+                        pop = top;
+                    }
                     if (pop.equals(t.getNT())) {
                         //System.out.println(current);
-                        System.out.println("εεεεεεεεε");
                         String q = String.valueOf(current);
                         stM = t.getT(current);
 
                         if (shuru1.equals(q)) {
                             String[] temp = stM.split("->");
                             String[] p = temp[1].split("");
-                            System.out.println("p[0]");
-                            System.out.println(p[0]);
                             if (p[0].equals("ε")) {
                                 M = stM;
                                 Empflag = 1;
@@ -611,16 +598,13 @@ public class LL {
             pop = stack.pop();
         }
 
-
         if (!isVT(top)) {
             M = VNTI();
-            System.out.println("MMMMMMMMMM");
-            System.out.println(M);
+//            System.out.println(M);
             getright(M);
         } else {
-            System.out.println("top");
-            System.out.println(top);
-
+           /* System.out.println("top");
+            System.out.println(top);*/
             if (top.equals(shuru1)) {
                 cur++;
                 shuru1 = curCharacter();

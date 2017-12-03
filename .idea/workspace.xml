@@ -30,8 +30,8 @@
       <file leaf-file-name="LL.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/LL.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="433">
-              <caret line="585" column="44" lean-forward="true" selection-start-line="585" selection-start-column="44" selection-end-line="585" selection-end-column="44" />
+            <state relative-caret-position="325">
+              <caret line="610" column="11" lean-forward="true" selection-start-line="610" selection-start-column="11" selection-end-line="610" selection-end-column="11" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
                 <element signature="imports" expanded="true" />
@@ -43,13 +43,11 @@
                 <element signature="method#inputStr#0;class#LL#0" expanded="false" />
                 <element signature="method#printP#0;class#LL#0" expanded="false" />
                 <element signature="method#printF#0;class#LL#0" expanded="false" />
-                <element signature="method#FindFirstP#0;class#LL#0" expanded="false" />
                 <element signature="method#FindFirstS#0;class#LL#0" expanded="false" />
-                <element signature="method#findE#0;class#LL#0" expanded="false" />
                 <element signature="method#cmpAdd#0;class#LL#0" expanded="false" />
                 <element signature="method#findFollowP#0;class#LL#0" expanded="false" />
-                <element signature="e#10050#10058#0" expanded="true" />
-                <element signature="e#10122#10130#0" expanded="true" />
+                <element signature="e#9547#9555#0" expanded="true" />
+                <element signature="e#9619#9627#0" expanded="true" />
                 <element signature="method#createTable#0;class#LL#0" expanded="false" />
                 <element signature="method#isHas#0;class#LL#0" expanded="false" />
                 <element signature="method#IsSingle#0;class#LL#0" expanded="false" />
@@ -201,42 +199,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="GrammaticalAnalysis" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="GrammaticalAnalysis" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="test" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="GrammaticalAnalysis" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="GrammaticalAnalysis" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mypackage" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -763,12 +725,12 @@
       <workItem from="1512096496311" duration="17173000" />
       <workItem from="1512188327710" duration="12295000" />
       <workItem from="1512217003986" duration="7509000" />
-      <workItem from="1512276909467" duration="5256000" />
+      <workItem from="1512276909467" duration="7070000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="110462000" />
+    <option name="totallyTimeSpent" value="112276000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -781,6 +743,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="64" y="-11" width="1303" height="780" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -792,7 +755,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3869969" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.28482974" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -934,13 +897,11 @@
             <element signature="method#inputStr#0;class#LL#0" expanded="false" />
             <element signature="method#printP#0;class#LL#0" expanded="false" />
             <element signature="method#printF#0;class#LL#0" expanded="false" />
-            <element signature="method#FindFirstP#0;class#LL#0" expanded="false" />
             <element signature="method#FindFirstS#0;class#LL#0" expanded="false" />
-            <element signature="method#findE#0;class#LL#0" expanded="false" />
             <element signature="method#cmpAdd#0;class#LL#0" expanded="false" />
             <element signature="method#findFollowP#0;class#LL#0" expanded="false" />
-            <element signature="e#10050#10058#0" expanded="true" />
-            <element signature="e#10122#10130#0" expanded="true" />
+            <element signature="e#9547#9555#0" expanded="true" />
+            <element signature="e#9619#9627#0" expanded="true" />
             <element signature="method#createTable#0;class#LL#0" expanded="false" />
             <element signature="method#isHas#0;class#LL#0" expanded="false" />
             <element signature="method#IsSingle#0;class#LL#0" expanded="false" />
@@ -1012,13 +973,11 @@
             <element signature="method#inputStr#0;class#LL#0" expanded="false" />
             <element signature="method#printP#0;class#LL#0" expanded="false" />
             <element signature="method#printF#0;class#LL#0" expanded="false" />
-            <element signature="method#FindFirstP#0;class#LL#0" expanded="false" />
             <element signature="method#FindFirstS#0;class#LL#0" expanded="false" />
-            <element signature="method#findE#0;class#LL#0" expanded="false" />
             <element signature="method#cmpAdd#0;class#LL#0" expanded="false" />
             <element signature="method#findFollowP#0;class#LL#0" expanded="false" />
-            <element signature="e#10050#10058#0" expanded="true" />
-            <element signature="e#10122#10130#0" expanded="true" />
+            <element signature="e#9547#9555#0" expanded="true" />
+            <element signature="e#9619#9627#0" expanded="true" />
             <element signature="method#createTable#0;class#LL#0" expanded="false" />
             <element signature="method#isHas#0;class#LL#0" expanded="false" />
             <element signature="method#IsSingle#0;class#LL#0" expanded="false" />
@@ -1097,13 +1056,11 @@
             <element signature="method#inputStr#0;class#LL#0" expanded="false" />
             <element signature="method#printP#0;class#LL#0" expanded="false" />
             <element signature="method#printF#0;class#LL#0" expanded="false" />
-            <element signature="method#FindFirstP#0;class#LL#0" expanded="false" />
             <element signature="method#FindFirstS#0;class#LL#0" expanded="false" />
-            <element signature="method#findE#0;class#LL#0" expanded="false" />
             <element signature="method#cmpAdd#0;class#LL#0" expanded="false" />
             <element signature="method#findFollowP#0;class#LL#0" expanded="false" />
-            <element signature="e#10050#10058#0" expanded="true" />
-            <element signature="e#10122#10130#0" expanded="true" />
+            <element signature="e#9547#9555#0" expanded="true" />
+            <element signature="e#9619#9627#0" expanded="true" />
             <element signature="method#createTable#0;class#LL#0" expanded="false" />
             <element signature="method#isHas#0;class#LL#0" expanded="false" />
             <element signature="method#IsSingle#0;class#LL#0" expanded="false" />
@@ -1174,13 +1131,11 @@
             <element signature="method#inputStr#0;class#LL#0" expanded="false" />
             <element signature="method#printP#0;class#LL#0" expanded="false" />
             <element signature="method#printF#0;class#LL#0" expanded="false" />
-            <element signature="method#FindFirstP#0;class#LL#0" expanded="false" />
             <element signature="method#FindFirstS#0;class#LL#0" expanded="false" />
-            <element signature="method#findE#0;class#LL#0" expanded="false" />
             <element signature="method#cmpAdd#0;class#LL#0" expanded="false" />
             <element signature="method#findFollowP#0;class#LL#0" expanded="false" />
-            <element signature="e#10050#10058#0" expanded="true" />
-            <element signature="e#10122#10130#0" expanded="true" />
+            <element signature="e#9547#9555#0" expanded="true" />
+            <element signature="e#9619#9627#0" expanded="true" />
             <element signature="method#createTable#0;class#LL#0" expanded="false" />
             <element signature="method#isHas#0;class#LL#0" expanded="false" />
             <element signature="method#IsSingle#0;class#LL#0" expanded="false" />
@@ -1336,8 +1291,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/LL.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="433">
-          <caret line="585" column="44" lean-forward="true" selection-start-line="585" selection-start-column="44" selection-end-line="585" selection-end-column="44" />
+        <state relative-caret-position="325">
+          <caret line="610" column="11" lean-forward="true" selection-start-line="610" selection-start-column="11" selection-end-line="610" selection-end-column="11" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
             <element signature="imports" expanded="true" />
@@ -1349,13 +1304,11 @@
             <element signature="method#inputStr#0;class#LL#0" expanded="false" />
             <element signature="method#printP#0;class#LL#0" expanded="false" />
             <element signature="method#printF#0;class#LL#0" expanded="false" />
-            <element signature="method#FindFirstP#0;class#LL#0" expanded="false" />
             <element signature="method#FindFirstS#0;class#LL#0" expanded="false" />
-            <element signature="method#findE#0;class#LL#0" expanded="false" />
             <element signature="method#cmpAdd#0;class#LL#0" expanded="false" />
             <element signature="method#findFollowP#0;class#LL#0" expanded="false" />
-            <element signature="e#10050#10058#0" expanded="true" />
-            <element signature="e#10122#10130#0" expanded="true" />
+            <element signature="e#9547#9555#0" expanded="true" />
+            <element signature="e#9619#9627#0" expanded="true" />
             <element signature="method#createTable#0;class#LL#0" expanded="false" />
             <element signature="method#isHas#0;class#LL#0" expanded="false" />
             <element signature="method#IsSingle#0;class#LL#0" expanded="false" />

@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9e617f03-0c64-461a-a09a-0ad11f847736" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/mypackage/Analysis.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/mypackage/grammer.txt" afterPath="" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/README" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -31,8 +31,8 @@
       <file leaf-file-name="LL.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/LL.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="598" column="3" lean-forward="false" selection-start-line="598" selection-start-column="3" selection-end-line="598" selection-end-column="3" />
+            <state relative-caret-position="65">
+              <caret line="597" column="13" lean-forward="false" selection-start-line="597" selection-start-column="13" selection-end-line="597" selection-end-column="13" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
                 <element signature="imports" expanded="true" />
@@ -60,6 +60,16 @@
                 <element signature="method#isVT#0;class#LL#0" expanded="false" />
                 <element signature="method#push#0;class#LL#0" expanded="false" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="README" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/README">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="20">
+              <caret line="1" column="12" lean-forward="true" selection-start-line="1" selection-start-column="12" selection-end-line="1" selection-end-column="12" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -145,6 +155,7 @@
         <option value="$PROJECT_DIR$/src/TableE.java" />
         <option value="$PROJECT_DIR$/src/G(E).txt" />
         <option value="$PROJECT_DIR$/src/LL.java" />
+        <option value="$PROJECT_DIR$/README" />
       </list>
     </option>
   </component>
@@ -726,12 +737,12 @@
       <workItem from="1512096496311" duration="17173000" />
       <workItem from="1512188327710" duration="12295000" />
       <workItem from="1512217003986" duration="7509000" />
-      <workItem from="1512276909467" duration="7131000" />
+      <workItem from="1512276909467" duration="7425000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="112337000" />
+    <option name="totallyTimeSpent" value="112631000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -825,14 +836,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/mypackage/grammer.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="40">
-          <caret line="2" column="4" lean-forward="true" selection-start-line="2" selection-start-column="4" selection-end-line="2" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/G(E).txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="40">
@@ -1290,10 +1293,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/README">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="20">
+          <caret line="1" column="12" lean-forward="true" selection-start-line="1" selection-start-column="12" selection-end-line="1" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/LL.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="598" column="3" lean-forward="false" selection-start-line="598" selection-start-column="3" selection-end-line="598" selection-end-column="3" />
+        <state relative-caret-position="65">
+          <caret line="597" column="13" lean-forward="false" selection-start-line="597" selection-start-column="13" selection-end-line="597" selection-end-column="13" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
             <element signature="imports" expanded="true" />
